@@ -2,4 +2,4 @@
 
 ## From iPhone
 
-[Page 2](Page 2.md)
+[Page 2](Page%202.md)
