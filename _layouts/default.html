@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="{{ "/assets/css/dark-mode.css" | relative_url }}">
   </head>
   <body>
-    <div class="wrapper">
+  <div class="wrapper">
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.heading | default: site.github.repository_name }}</a></h1>
 
@@ -45,10 +45,9 @@
           </label>
       </header>
       <section>
-
-      {{ content }}
-
-      </section>
+      <main>
+        {{ content }}
+      </main>
       <footer>
         {% if site.github.is_project_page %}
         <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
@@ -57,25 +56,6 @@
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-    <script>
-      // Dark mode checkbox logic
-      const darkCheckbox = document.getElementById('demo-darkmode');
-      // Set initial state from localStorage or prefers-color-scheme
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const saved = window.localStorage.getItem('dark-mode');
-      if (saved === 'enabled' || (saved === null && prefersDark)) {
-        document.body.classList.add('dark-mode');
-        darkCheckbox.checked = true;
-      }
-      darkCheckbox.addEventListener('change', function() {
-        if (darkCheckbox.checked) {
-          document.body.classList.add('dark-mode');
-          window.localStorage.setItem('dark-mode', 'enabled');
-        } else {
-          document.body.classList.remove('dark-mode');
-          window.localStorage.setItem('dark-mode', 'disabled');
-        }
-      });
-    </script>
+    <!-- No JS needed for CSS :has() dark mode toggle -->
   </body>
 </html>
