@@ -1,28 +1,66 @@
+/* Ensure Jekyll .highlight pre matches code block colors */
+.highlight pre {
+    background: var(--c-code-bg) !important;
+    color: var(--c-code-text) !important;
+    border-radius: 4px;
+    padding: 1em;
+    overflow-x: auto;
+}
+/* Improve bold text visibility in dark mode */
+
+:root:has(#demo-darkmode:checked) strong,
+:root:has(#demo-darkmode:checked) b {
+    color: #fff;
+    font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+    strong,
+    b {
+        color: #fff;
+        font-weight: bold;
+    }
+}
+/* System dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --c-text: #f1f5f9; /* slate-100 */
+        --c-background: #0f172a; /* slate-900 */
+        --c-primary: #60a5fa; /* blue-400 */
+        --c-secondary: #94a3b8; /* slate-400 */
+        --c-border: #334155; /* slate-700 */
+        --c-code-bg: #1e293b; /* slate-800 */
+        --c-code-text: #f1f5f9; /* slate-100 */
+        --c-blockquote-bg: #1e293b; /* slate-800 */
+        --c-blockquote-border: #60a5fa; /* blue-400 */
+    }
+}
 
 /* Default variables values */
+/* Tailwind-inspired color scheme */
 :root {
-    --c-text: #493c37;
-    --c-background: #fff;
-    --c-primary: #b392f0;
-    --c-secondary: #6c757d;
-    --c-border: #e0e0e0;
-    --c-code-bg: #f6f8fa;
-    --c-code-text: #2d2d2d;
-    --c-blockquote-bg: #f9f9f9;
-    --c-blockquote-border: #b392f0;
+    --c-text: #1e293b; /* slate-800 */
+    --c-background: #f8fafc; /* slate-50 */
+    --c-primary: #2563eb; /* blue-600 */
+    --c-secondary: #64748b; /* slate-500 */
+    --c-border: #e2e8f0; /* slate-200 */
+    --c-code-bg: #f1f5f9; /* slate-100 */
+    --c-code-text: #334155; /* slate-700 */
+    --c-blockquote-bg: #f1f5f9; /* slate-100 */
+    --c-blockquote-border: #2563eb; /* blue-600 */
 }
 
 /* Variables values when the input is checked */
 :root:has(#demo-darkmode:checked) {
-    --c-text: #f3f3f3;
-    --c-background: #181a1b;
-    --c-primary: #98fb98;
-    --c-secondary: #b0b0b0;
-    --c-border: #444;
-    --c-code-bg: #23272e;
-    --c-code-text: #e0e0e0;
-    --c-blockquote-bg: #23272e;
-    --c-blockquote-border: #98fb98;
+    --c-text: #f1f5f9; /* slate-100 */
+    --c-background: #0f172a; /* slate-900 */
+    --c-primary: #60a5fa; /* blue-400 */
+    --c-secondary: #94a3b8; /* slate-400 */
+    --c-border: #334155; /* slate-700 */
+    --c-code-bg: #1e293b; /* slate-800 */
+    --c-code-text: #f1f5f9; /* slate-100 */
+    --c-blockquote-bg: #1e293b; /* slate-800 */
+    --c-blockquote-border: #60a5fa; /* blue-400 */
 }
 
 body {
