@@ -17,7 +17,7 @@ p {
     color: var(--c-text);
 }
 
-main {
+body {
     background-color: var(--c-background);
 }
 
