@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     {% include head-custom.html %}
+  <link rel="stylesheet" href="{{ "/assets/css/dark-mode.css" | relative_url }}">
   </head>
   <body>
     <div class="wrapper">
@@ -38,6 +39,10 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
+          <input id="demo-darkmode" type="checkbox" />
+          <label for="demo-darkmode" title="Toggle dark mode">
+            🌙 Dark Mode
+          </label>
       </header>
       <section>
 
@@ -52,5 +57,25 @@
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+      // Dark mode checkbox logic
+      const darkCheckbox = document.getElementById('demo-darkmode');
+      // Set initial state from localStorage or prefers-color-scheme
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const saved = window.localStorage.getItem('dark-mode');
+      if (saved === 'enabled' || (saved === null && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        darkCheckbox.checked = true;
+      }
+      darkCheckbox.addEventListener('change', function() {
+        if (darkCheckbox.checked) {
+          document.body.classList.add('dark-mode');
+          window.localStorage.setItem('dark-mode', 'enabled');
+        } else {
+          document.body.classList.remove('dark-mode');
+          window.localStorage.setItem('dark-mode', 'disabled');
+        }
+      });
+    </script>
   </body>
 </html>

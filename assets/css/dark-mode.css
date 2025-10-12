@@ -1,0 +1,13 @@
+/* Default variables values */
+:root {
+	--c-text: #493c37;
+	--c-background: #eddfe0;
+	--c-primary: #b392f0;
+}
+
+/* Variables values when the input is checked */
+:root:has(#demo-darkmode:checked) {
+	--c-text: #fff;
+	--c-background: #333;
+	--c-primary: #98fb98;
+}
