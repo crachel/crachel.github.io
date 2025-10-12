@@ -11,27 +11,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     {% include head-custom.html %}
-  <link rel="stylesheet" href="{{ "/assets/css/dark-mode.css" | relative_url }}">
-
-  <script>
-    // Early dark mode class application to prevent FOUC
-    (function() {
-      var saved = window.localStorage.getItem('dark-mode');
-      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var enableDark = saved === 'enabled' || (saved === null && prefersDark);
-      if (enableDark) {
-        document.documentElement.classList.add('dark-mode');
-      }
-    })();
-  </script>
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.heading | default: site.github.repository_name }}</a></h1>
+        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
         {% if site.logo %}
-          <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" /></a>
+          <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
@@ -51,10 +38,6 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
-          <input id="demo-darkmode" type="checkbox" />
-          <label for="demo-darkmode" title="Toggle dark mode">
-            🌙 Dark Mode
-          </label>
       </header>
       <section>
 
@@ -69,25 +52,5 @@
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-    <script>
-      // Persist dark mode state with localStorage
-      const darkCheckbox = document.getElementById('demo-darkmode');
-      const saved = window.localStorage.getItem('dark-mode');
-      if (saved === 'enabled') {
-        darkCheckbox.checked = true;
-      } else if (saved === 'disabled') {
-        darkCheckbox.checked = false;
-      }
-      darkCheckbox.addEventListener('change', function() {
-        if (darkCheckbox.checked) {
-          window.localStorage.setItem('dark-mode', 'enabled');
-          document.documentElement.classList.add('dark-mode');
-        } else {
-          window.localStorage.setItem('dark-mode', 'disabled');
-          document.documentElement.classList.remove('dark-mode');
-        }
-      });
-    </script>
-    <!-- No JS needed for pure CSS dark mode toggle -->
   </body>
 </html>
