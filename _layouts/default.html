@@ -57,6 +57,24 @@
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+      // Persist dark mode state with localStorage
+      const darkCheckbox = document.getElementById('demo-darkmode');
+      // Restore state on page load
+      const saved = window.localStorage.getItem('dark-mode');
+      if (saved === 'enabled') {
+        darkCheckbox.checked = true;
+      } else if (saved === 'disabled') {
+        darkCheckbox.checked = false;
+      }
+      darkCheckbox.addEventListener('change', function() {
+        if (darkCheckbox.checked) {
+          window.localStorage.setItem('dark-mode', 'enabled');
+        } else {
+          window.localStorage.setItem('dark-mode', 'disabled');
+        }
+      });
+    </script>
     <!-- No JS needed for pure CSS dark mode toggle -->
   </body>
 </html>
