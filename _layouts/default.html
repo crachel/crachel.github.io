@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     {% include head-custom.html %}
+     <link rel="stylesheet" href="{{ "/assets/css/dark-mode.css" | relative_url }}">
   </head>
   <body>
     <div class="wrapper">
@@ -38,6 +39,7 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
+          <button id="dark-mode-toggle" title="Toggle dark mode">🌙</button>
       </header>
       <section>
 
@@ -52,5 +54,24 @@
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+      // Dark mode toggle logic
+      const toggleBtn = document.getElementById('dark-mode-toggle');
+      // Load preference
+      if (window.localStorage.getItem('dark-mode') === 'enabled' ||
+          (window.localStorage.getItem('dark-mode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.classList.add('dark-mode');
+        toggleBtn.classList.add('active');
+      }
+      toggleBtn.onclick = function() {
+        document.body.classList.toggle('dark-mode');
+        toggleBtn.classList.toggle('active');
+        if (document.body.classList.contains('dark-mode')) {
+          window.localStorage.setItem('dark-mode', 'enabled');
+        } else {
+          window.localStorage.setItem('dark-mode', 'disabled');
+        }
+      };
+    </script>
   </body>
 </html>
