@@ -12,6 +12,18 @@
     <![endif]-->
     {% include head-custom.html %}
   <link rel="stylesheet" href="{{ "/assets/css/dark-mode.css" | relative_url }}">
+
+  <script>
+    // Early dark mode class application to prevent FOUC
+    (function() {
+      var saved = window.localStorage.getItem('dark-mode');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var enableDark = saved === 'enabled' || (saved === null && prefersDark);
+      if (enableDark) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    })();
+  </script>
   </head>
   <body>
     <div class="wrapper">
@@ -60,7 +72,6 @@
     <script>
       // Persist dark mode state with localStorage
       const darkCheckbox = document.getElementById('demo-darkmode');
-      // Restore state on page load
       const saved = window.localStorage.getItem('dark-mode');
       if (saved === 'enabled') {
         darkCheckbox.checked = true;
@@ -70,8 +81,10 @@
       darkCheckbox.addEventListener('change', function() {
         if (darkCheckbox.checked) {
           window.localStorage.setItem('dark-mode', 'enabled');
+          document.documentElement.classList.add('dark-mode');
         } else {
           window.localStorage.setItem('dark-mode', 'disabled');
+          document.documentElement.classList.remove('dark-mode');
         }
       });
     </script>

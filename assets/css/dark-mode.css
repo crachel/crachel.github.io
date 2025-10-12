@@ -8,8 +8,9 @@
 }
 /* Improve bold text visibility in dark mode */
 
-:root:has(#demo-darkmode:checked) strong,
-:root:has(#demo-darkmode:checked) b {
+
+.dark-mode strong,
+.dark-mode b {
     color: #fff;
     font-weight: bold;
 }
@@ -50,8 +51,8 @@
     --c-blockquote-border: #2563eb; /* blue-600 */
 }
 
-/* Variables values when the input is checked */
-:root:has(#demo-darkmode:checked) {
+
+.dark-mode {
     --c-text: #f1f5f9; /* slate-100 */
     --c-background: #0f172a; /* slate-900 */
     --c-primary: #60a5fa; /* blue-400 */
