@@ -1,24 +1,103 @@
+
 /* Default variables values */
 :root {
     --c-text: #493c37;
     --c-background: #fff;
+    --c-primary: #b392f0;
+    --c-secondary: #6c757d;
+    --c-border: #e0e0e0;
+    --c-code-bg: #f6f8fa;
+    --c-code-text: #2d2d2d;
+    --c-blockquote-bg: #f9f9f9;
+    --c-blockquote-border: #b392f0;
 }
 
 /* Variables values when the input is checked */
 :root:has(#demo-darkmode:checked) {
-    --c-text: #fff;
-    --c-background: #333;
-}
-
-h1,
-p {
-    color: var(--c-text);
+    --c-text: #f3f3f3;
+    --c-background: #181a1b;
+    --c-primary: #98fb98;
+    --c-secondary: #b0b0b0;
+    --c-border: #444;
+    --c-code-bg: #23272e;
+    --c-code-text: #e0e0e0;
+    --c-blockquote-bg: #23272e;
+    --c-blockquote-border: #98fb98;
 }
 
 body {
-    background-color: var(--c-background);
+    background: var(--c-background);
+    color: var(--c-text);
+    transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--c-text);
+}
+
+p, ul, ol, li, dl, dt, dd {
+    color: var(--c-text);
 }
 
 a {
     color: var(--c-primary);
+    text-decoration: underline;
+}
+a:hover {
+    color: var(--c-secondary);
+}
+
+hr {
+    border-color: var(--c-border);
+}
+
+pre, code {
+    background: var(--c-code-bg);
+    color: var(--c-code-text);
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+pre {
+    padding: 1em;
+    overflow-x: auto;
+}
+
+blockquote {
+    background: var(--c-blockquote-bg);
+    border-left: 4px solid var(--c-blockquote-border);
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    color: var(--c-secondary);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: var(--c-background);
+    color: var(--c-text);
+}
+th, td {
+    border: 1px solid var(--c-border);
+    padding: 0.5em 1em;
+}
+th {
+    background: var(--c-blockquote-bg);
+    color: var(--c-text);
+}
+
+img {
+    max-width: 100%;
+    filter: none;
+}
+
+/* Checkbox style */
+#demo-darkmode {
+    accent-color: var(--c-primary);
+    width: 1.2em;
+    height: 1.2em;
+}
+label[for="demo-darkmode"] {
+    margin-left: 0.5em;
+    cursor: pointer;
+    font-size: 1em;
 }
