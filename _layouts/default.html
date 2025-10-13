@@ -12,6 +12,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     {% include head-custom.html %}
+      <link rel="stylesheet" href="{{ "/assets/css/dark-mode.css" | relative_url }}">
+      <script>
+        // Apply dark mode class before rendering to avoid FOUC
+        (function() {
+          try {
+            var darkPref = localStorage.getItem('darkMode');
+            if (darkPref === 'true' || (darkPref === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+              document.documentElement.classList.add('dark-mode');
+              document.body.classList.add('dark-mode');
+            }
+          } catch(e) {}
+        })();
+      </script>
   </head>
   <body>
     <div class="wrapper">
@@ -23,6 +36,8 @@
         {% endif %}
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
+
+          <button id="dark-mode-toggle" style="margin:10px 0;padding:6px 12px;border-radius:5px;border:1px solid #30363d;background:#22272e;color:#c9d1d9;cursor:pointer;">Toggle Dark Mode</button>
 
         {% if site.github.is_project_page %}
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
@@ -53,5 +68,19 @@
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+      <script>
+        // Toggle dark mode and persist preference
+        document.getElementById('dark-mode-toggle').onclick = function() {
+          var html = document.documentElement;
+          var body = document.body;
+          var isDark = html.classList.toggle('dark-mode');
+          body.classList.toggle('dark-mode', isDark);
+          localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+        };
+        // Ensure body class matches html class on load
+        if (document.documentElement.classList.contains('dark-mode')) {
+          document.body.classList.add('dark-mode');
+        }
+      </script>
   </body>
 </html>
