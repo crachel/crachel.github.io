@@ -13,7 +13,6 @@
     <![endif]-->
     {% include head-custom.html %}
       <link rel="stylesheet" href="{{ "/assets/css/dark-mode.css" | relative_url }}">
-    <style id="fouc-fix">body{display:none !important;}</style>
       <script>
         // Apply dark mode class before rendering to avoid FOUC
         (function() {
@@ -23,9 +22,6 @@
               document.documentElement.classList.add('dark-mode');
               document.body.classList.add('dark-mode');
             }
-              // Show body after class is set
-              document.getElementById('fouc-fix').remove();
-              document.body.style.display = '';
           } catch(e) {}
         })();
       </script>
