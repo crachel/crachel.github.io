@@ -19,7 +19,7 @@
 
         {% if site.logo %}
          <img id="logo-light" src="{{site.logo | relative_url}}" alt="Logo" />
-         <img id="logo-dark" src="{{ '/assets/logo-dark.png' | relative_url }}" alt="Logo Dark" style="display:none;" />
+         <img id="logo-dark" src="{{site.logo_dark | relative_url }}" alt="Logo Dark" style="display:none;" />
         {% endif %}
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
