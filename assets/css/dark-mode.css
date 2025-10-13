@@ -155,6 +155,17 @@ body.dark-mode .highlight .w {
   color: #484f58;
 }
 
+  body.dark-mode .highlight .k,
+  body.dark-mode .highlight .kc,
+  body.dark-mode .highlight .kd,
+  body.dark-mode .highlight .kn,
+  body.dark-mode .highlight .kp,
+  body.dark-mode .highlight .kr,
+  body.dark-mode .highlight .kv {
+    color: #79c0ff;
+    font-weight: bold;
+  }
+
 /* Responsive and print media queries for dark mode */
 @media print, screen and (max-width: 960px) {
   body.dark-mode div.wrapper,
