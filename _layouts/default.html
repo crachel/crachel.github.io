@@ -51,46 +51,53 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
-          <button id="dark-mode-toggle" style="margin-top:10px;">Toggle Dark Mode</button>
+          <div class="toggle-switch" style="margin-top:10px;">
+            <label>
+              <input type="checkbox" id="dark-mode-toggle-checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
       </header>
         <script>
-            const toggleBtn = document.getElementById('dark-mode-toggle');
-            const logoLight = document.getElementById('logo-light');
-            const logoDark = document.getElementById('logo-dark');
-            function updateLogo() {
-              if(document.body.classList.contains('dark-mode')) {
-                logoLight.style.display = 'none';
-                logoDark.style.display = '';
-              } else {
-                logoLight.style.display = '';
-                logoDark.style.display = 'none';
-              }
+          const toggleCheckbox = document.getElementById('dark-mode-toggle-checkbox');
+          const logoLight = document.getElementById('logo-light');
+          const logoDark = document.getElementById('logo-dark');
+          function updateLogo() {
+            if(document.body.classList.contains('dark-mode')) {
+              logoLight.style.display = 'none';
+              logoDark.style.display = '';
+            } else {
+              logoLight.style.display = '';
+              logoDark.style.display = 'none';
             }
-            function setDarkMode(enabled) {
-              if(enabled) {
-                document.body.classList.add('dark-mode');
-                document.documentElement.classList.add('dark-mode');
-                localStorage.setItem('darkMode', 'enabled');
-              } else {
-                document.body.classList.remove('dark-mode');
-                document.documentElement.classList.remove('dark-mode');
-                localStorage.setItem('darkMode', 'disabled');
-              }
+          }
+          function setDarkMode(enabled) {
+            if(enabled) {
+              document.body.classList.add('dark-mode');
+              document.documentElement.classList.add('dark-mode');
+              localStorage.setItem('darkMode', 'enabled');
+            } else {
+              document.body.classList.remove('dark-mode');
+              document.documentElement.classList.remove('dark-mode');
+              localStorage.setItem('darkMode', 'disabled');
+            }
+            updateLogo();
+            if (toggleCheckbox) toggleCheckbox.checked = enabled;
+          }
+          if (toggleCheckbox) {
+            toggleCheckbox.addEventListener('change', function() {
+              setDarkMode(toggleCheckbox.checked);
+            });
+          }
+          // On page load, set correct logo and mode
+          (function() {
+            try {
+              var darkMode = localStorage.getItem('darkMode');
+              setDarkMode(darkMode === 'enabled');
+            } catch(e) {
               updateLogo();
             }
-            toggleBtn.addEventListener('click', function() {
-              const enabled = !document.body.classList.contains('dark-mode');
-              setDarkMode(enabled);
-            });
-            // On page load, set correct logo and mode
-            (function() {
-              try {
-                var darkMode = localStorage.getItem('darkMode');
-                setDarkMode(darkMode === 'enabled');
-              } catch(e) {
-                updateLogo();
-              }
-            })();
+          })();
         </script>
       <section>
 

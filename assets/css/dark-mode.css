@@ -1,5 +1,5 @@
 /* Dark mode CSS for crachel.github.io
-   Uses .dark-mode class on <body> for toggling. Covers all styles from default.css and rouge-github.css. */
+   Uses .dark-mode class on <body> for toggling. */
 
 body.dark-mode {
   background-color: #181a1b;
