@@ -6,24 +6,16 @@ body.dark-mode {
   color: #c9d1d9;
 }
 
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6 {
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
   color: #e6edf3;
 }
 
 body.dark-mode a {
   color: #58a6ff;
 }
-
-body.dark-mode a:hover,
-body.dark-mode a:focus {
+body.dark-mode a:hover, body.dark-mode a:focus {
   color: #1f6feb;
 }
-
 body.dark-mode a small {
   color: #8b949e;
 }
@@ -37,13 +29,11 @@ body.dark-mode blockquote {
   color: #8b949e;
 }
 
-body.dark-mode code,
-body.dark-mode pre {
+body.dark-mode code, body.dark-mode pre {
   color: #c9d1d9;
   background: #161b22;
   border-color: #30363d;
 }
-
 body.dark-mode pre {
   background: #161b22;
 }
@@ -51,17 +41,13 @@ body.dark-mode pre {
 body.dark-mode table {
   border-color: #30363d;
 }
-
-body.dark-mode th,
-body.dark-mode td {
+body.dark-mode th, body.dark-mode td {
   border-bottom: 1px solid #30363d;
   color: #c9d1d9;
 }
-
 body.dark-mode th {
   color: #e6edf3;
 }
-
 body.dark-mode dt {
   color: #e6edf3;
 }
@@ -72,25 +58,19 @@ body.dark-mode kbd {
   color: #c9d1d9;
 }
 
-body.dark-mode header,
-body.dark-mode footer {
+body.dark-mode header, body.dark-mode footer {
   background: none;
 }
-
 body.dark-mode ul.downloads {
   background: #22272e;
   border: 1px solid #30363d;
 }
-
 body.dark-mode .downloads a {
   color: #c9d1d9;
 }
-
-body.dark-mode .downloads a:hover,
-body.dark-mode .downloads a:focus {
+body.dark-mode .downloads a:hover, body.dark-mode .downloads a:focus {
   color: #e6edf3;
 }
-
 body.dark-mode .downloads a strong {
   color: #e6edf3;
 }
@@ -102,7 +82,6 @@ body.dark-mode strong {
 body.dark-mode section {
   background: none;
 }
-
 body.dark-mode hr {
   background: #30363d;
 }
@@ -111,136 +90,84 @@ body.dark-mode hr {
 body.dark-mode .highlight {
   background-color: #161b22;
 }
-
 body.dark-mode .highlight .cm {
   color: #8b949e;
 }
-
 body.dark-mode .highlight .cp {
   color: #8b949e;
 }
-
 body.dark-mode .highlight .c1 {
   color: #8b949e;
 }
-
 body.dark-mode .highlight .cs {
   color: #8b949e;
 }
-
-body.dark-mode .highlight .c,
-body.dark-mode .highlight .cd {
+body.dark-mode .highlight .c, body.dark-mode .highlight .cd {
   color: #8b949e;
 }
-
 body.dark-mode .highlight .err {
   color: #f85149;
   background-color: #b62324;
 }
-
 body.dark-mode .highlight .gd {
   background-color: #b62324;
 }
-
 body.dark-mode .highlight .gi {
   background-color: #238636;
 }
-
 body.dark-mode .highlight .go {
   color: #484f58;
 }
-
 body.dark-mode .highlight .gh {
   color: #8b949e;
 }
-
-body.dark-mode .highlight .kt,
-body.dark-mode .highlight .nc {
+body.dark-mode .highlight .kt, body.dark-mode .highlight .nc {
   color: #79c0ff;
 }
-
-body.dark-mode .highlight .s,
-body.dark-mode .highlight .sb,
-body.dark-mode .highlight .sc,
-body.dark-mode .highlight .sd,
-body.dark-mode .highlight .s2,
-body.dark-mode .highlight .se,
-body.dark-mode .highlight .sh,
-body.dark-mode .highlight .si,
-body.dark-mode .highlight .sx,
-body.dark-mode .highlight .sr,
-body.dark-mode .highlight .s1,
-body.dark-mode .highlight .ss {
+body.dark-mode .highlight .s, body.dark-mode .highlight .sb, body.dark-mode .highlight .sc, body.dark-mode .highlight .sd, body.dark-mode .highlight .s2, body.dark-mode .highlight .se, body.dark-mode .highlight .sh, body.dark-mode .highlight .si, body.dark-mode .highlight .sx, body.dark-mode .highlight .sr, body.dark-mode .highlight .s1, body.dark-mode .highlight .ss {
   color: #a5d6ff;
 }
-
-body.dark-mode .highlight .m,
-body.dark-mode .highlight .mb,
-body.dark-mode .highlight .mx,
-body.dark-mode .highlight .mf,
-body.dark-mode .highlight .mh,
-body.dark-mode .highlight .il,
-body.dark-mode .highlight .mi,
-body.dark-mode .highlight .mo {
+body.dark-mode .highlight .m, body.dark-mode .highlight .mb, body.dark-mode .highlight .mx, body.dark-mode .highlight .mf, body.dark-mode .highlight .mh, body.dark-mode .highlight .il, body.dark-mode .highlight .mi, body.dark-mode .highlight .mo {
   color: #ffa657;
 }
-
-body.dark-mode .highlight .na,
-body.dark-mode .highlight .no,
-body.dark-mode .highlight .nv,
-body.dark-mode .highlight .vc,
-body.dark-mode .highlight .vg,
-body.dark-mode .highlight .vi {
+body.dark-mode .highlight .na, body.dark-mode .highlight .no, body.dark-mode .highlight .nv, body.dark-mode .highlight .vc, body.dark-mode .highlight .vg, body.dark-mode .highlight .vi {
   color: #d2a8ff;
 }
-
 body.dark-mode .highlight .bp {
   color: #8b949e;
 }
-
 body.dark-mode .highlight .nb {
   color: #58a6ff;
 }
-
-body.dark-mode .highlight .nd,
-body.dark-mode .highlight .ne,
-body.dark-mode .highlight .nf,
-body.dark-mode .highlight .nl {
+body.dark-mode .highlight .nd, body.dark-mode .highlight .ne, body.dark-mode .highlight .nf, body.dark-mode .highlight .nl {
   color: #ffa657;
 }
-
 body.dark-mode .highlight .nn {
   color: #c9d1d9;
 }
-
 body.dark-mode .highlight .nt {
   color: #7ee787;
 }
-
-body.dark-mode .highlight .ow,
-body.dark-mode .highlight .o {
+body.dark-mode .highlight .ow, body.dark-mode .highlight .o {
   color: #ff7b72;
 }
-
 body.dark-mode .highlight .w {
   color: #484f58;
 }
 
-body.dark-mode .highlight .k,
-body.dark-mode .highlight .kc,
-body.dark-mode .highlight .kd,
-body.dark-mode .highlight .kn,
-body.dark-mode .highlight .kp,
-body.dark-mode .highlight .kr,
-body.dark-mode .highlight .kv {
-  color: #79c0ff;
-  font-weight: bold;
-}
+  body.dark-mode .highlight .k,
+  body.dark-mode .highlight .kc,
+  body.dark-mode .highlight .kd,
+  body.dark-mode .highlight .kn,
+  body.dark-mode .highlight .kp,
+  body.dark-mode .highlight .kr,
+  body.dark-mode .highlight .kv {
+    color: #79c0ff;
+    font-weight: bold;
+  }
 
 /* Responsive and print media queries for dark mode */
-@media print,
-screen and (max-width: 960px) {
-
+@media print, screen and (max-width: 960px) {
   body.dark-mode div.wrapper,
   body.dark-mode header,
   body.dark-mode section,
@@ -249,21 +176,16 @@ screen and (max-width: 960px) {
     color: #c9d1d9;
   }
 }
-
-@media print,
-screen and (max-width: 720px) {
+@media print, screen and (max-width: 720px) {
   body.dark-mode header {
     background: none;
   }
 }
-
-@media print,
-screen and (max-width: 480px) {
+@media print, screen and (max-width: 480px) {
   body.dark-mode .downloads {
     background: #22272e;
   }
 }
-
 @media print {
   body.dark-mode {
     color: #c9d1d9;
