@@ -51,8 +51,9 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
-          <div class="toggle-switch" style="margin-top:10px;">
-            <label>
+          <div class="toggle-switch" style="margin-top:10px; width:60px;">
+            <label for="dark-mode-toggle-checkbox" style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:0.95em;">Dark Mode</span>
               <input type="checkbox" id="dark-mode-toggle-checkbox">
               <span class="slider"></span>
             </label>
@@ -76,16 +77,18 @@
               document.body.classList.add('dark-mode');
               document.documentElement.classList.add('dark-mode');
               localStorage.setItem('darkMode', 'enabled');
+              if (toggleCheckbox) toggleCheckbox.checked = true;
             } else {
               document.body.classList.remove('dark-mode');
               document.documentElement.classList.remove('dark-mode');
               localStorage.setItem('darkMode', 'disabled');
+              if (toggleCheckbox) toggleCheckbox.checked = false;
             }
             updateLogo();
-            if (toggleCheckbox) toggleCheckbox.checked = enabled;
           }
           if (toggleCheckbox) {
             toggleCheckbox.addEventListener('change', function() {
+              // checked means dark mode ON
               setDarkMode(toggleCheckbox.checked);
             });
           }
@@ -93,6 +96,7 @@
           (function() {
             try {
               var darkMode = localStorage.getItem('darkMode');
+              // checked means dark mode ON
               setDarkMode(darkMode === 'enabled');
             } catch(e) {
               updateLogo();
