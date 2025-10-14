@@ -12,16 +12,28 @@
     <![endif]-->
     {% include head-custom.html %}
       <script>
-        // Prevent FOUC: set dark mode class before page renders
-        (function() {
-          try {
-            var darkMode = localStorage.getItem('darkMode');
-            if (darkMode === 'enabled') {
-              document.documentElement.classList.add('dark-mode');
-              document.body.classList.add('dark-mode');
-            }
-          } catch(e) {}
-        })();
+          // Prevent FOUC: set dark mode class before page renders, respecting system setting
+          (function() {
+            try {
+              var darkMode = localStorage.getItem('darkMode');
+              if (darkMode === 'enabled') {
+                document.documentElement.classList.add('dark-mode');
+                document.body.classList.add('dark-mode');
+              } else if (darkMode === 'disabled') {
+                document.documentElement.classList.remove('dark-mode');
+                document.body.classList.remove('dark-mode');
+              } else {
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDark) {
+                  document.documentElement.classList.add('dark-mode');
+                  document.body.classList.add('dark-mode');
+                } else {
+                  document.documentElement.classList.remove('dark-mode');
+                  document.body.classList.remove('dark-mode');
+                }
+              }
+            } catch(e) {}
+          })();
       </script>
   </head>
   <body>
@@ -51,12 +63,17 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
-          <label style="margin-top:10px; display:block; margin-bottom: 10px;">
-            <input type="checkbox" id="dark-mode-toggle-checkbox"> Dark Mode
+          <label for="theme-select" style="margin-top:10px; display:block; margin-bottom: 10px;">
+            Theme:
+            <select id="theme-select">
+              <option value="system">System</option>
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+            </select>
           </label>
       </header>
         <script>
-          const toggleCheckbox = document.getElementById('dark-mode-toggle-checkbox');
+          const themeSelect = document.getElementById('theme-select');
           const logoLight = document.getElementById('logo-light');
           const logoDark = document.getElementById('logo-dark');
           function updateLogo() {
@@ -68,29 +85,45 @@
               logoDark.style.display = 'none';
             }
           }
-          function setDarkMode(enabled) {
-            if(enabled) {
+          function setTheme(mode) {
+            if (mode === 'dark') {
               document.body.classList.add('dark-mode');
               document.documentElement.classList.add('dark-mode');
               localStorage.setItem('darkMode', 'enabled');
-            } else {
+            } else if (mode === 'light') {
               document.body.classList.remove('dark-mode');
               document.documentElement.classList.remove('dark-mode');
               localStorage.setItem('darkMode', 'disabled');
+            } else {
+              localStorage.removeItem('darkMode');
+              var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              if (prefersDark) {
+                document.body.classList.add('dark-mode');
+                document.documentElement.classList.add('dark-mode');
+              } else {
+                document.body.classList.remove('dark-mode');
+                document.documentElement.classList.remove('dark-mode');
+              }
             }
             updateLogo();
-            if (toggleCheckbox) toggleCheckbox.checked = enabled;
+            if (themeSelect) themeSelect.value = mode;
           }
-          if (toggleCheckbox) {
-            toggleCheckbox.addEventListener('change', function() {
-              setDarkMode(toggleCheckbox.checked);
+          if (themeSelect) {
+            themeSelect.addEventListener('change', function() {
+              setTheme(themeSelect.value);
             });
           }
           // On page load, set correct logo and mode
           (function() {
             try {
               var darkMode = localStorage.getItem('darkMode');
-              setDarkMode(darkMode === 'enabled');
+              if (darkMode === 'enabled') {
+                setTheme('dark');
+              } else if (darkMode === 'disabled') {
+                setTheme('light');
+              } else {
+                setTheme('system');
+              }
             } catch(e) {
               updateLogo();
             }
