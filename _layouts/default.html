@@ -128,6 +128,14 @@
               updateLogo();
             }
           })();
+
+          // Listen for system theme changes if 'System' is selected
+          window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            var darkMode = localStorage.getItem('darkMode');
+            if (!darkMode && themeSelect && themeSelect.value === 'system') {
+              setTheme('system');
+            }
+          });
         </script>
       <section>
 
