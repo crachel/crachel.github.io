@@ -1,0 +1,44 @@
+/* Blog list + post styling for crachel.github.io */
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list-item {
+  margin-bottom: 1.5em;
+}
+
+.post-list-date {
+  display: block;
+  font-size: 0.8em;
+  color: #6a737d;
+  margin-bottom: 0.2em;
+}
+
+.post-list-link {
+  font-size: 1.15em;
+  font-weight: bold;
+}
+
+.post-list-excerpt {
+  margin: 0.3em 0 0;
+}
+
+.post-meta {
+  color: #6a737d;
+  font-size: 0.85em;
+  margin-top: -0.5em;
+}
+
+.post-back {
+  margin-top: 2.5em;
+  font-size: 0.9em;
+}
+
+/* Dark-mode overrides (.dark-mode is set on <html>) */
+.dark-mode .post-list-date,
+.dark-mode .post-meta {
+  color: #8b949e;
+}
