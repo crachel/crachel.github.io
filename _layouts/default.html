@@ -16,21 +16,15 @@
           (function() {
             try {
               var darkMode = localStorage.getItem('darkMode');
+              // Only <html> exists at this point (this runs in <head>, before <body>),
+              // so set the class on documentElement; the dark-mode CSS keys off it.
               if (darkMode === 'enabled') {
                 document.documentElement.classList.add('dark-mode');
-                document.body.classList.add('dark-mode');
               } else if (darkMode === 'disabled') {
                 document.documentElement.classList.remove('dark-mode');
-                document.body.classList.remove('dark-mode');
               } else {
                 var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (prefersDark) {
-                  document.documentElement.classList.add('dark-mode');
-                  document.body.classList.add('dark-mode');
-                } else {
-                  document.documentElement.classList.remove('dark-mode');
-                  document.body.classList.remove('dark-mode');
-                }
+                document.documentElement.classList.toggle('dark-mode', prefersDark);
               }
             } catch(e) {}
           })();

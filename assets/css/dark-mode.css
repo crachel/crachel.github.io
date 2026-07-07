@@ -1,193 +1,195 @@
 /* Dark mode CSS for crachel.github.io
-   Uses .dark-mode class on <body> for toggling. */
+   Uses the .dark-mode class, set on <html> before first paint (see default.html)
+   to avoid a flash of light, and also on <body> once the theme selector runs. */
 
-body.dark-mode {
+.dark-mode,
+.dark-mode body {
   background-color: #181a1b;
   color: #c9d1d9;
 }
 
-body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
   color: #e6edf3;
 }
 
-body.dark-mode a {
+.dark-mode a {
   color: #58a6ff;
 }
-body.dark-mode a:hover, body.dark-mode a:focus {
+.dark-mode a:hover, .dark-mode a:focus {
   color: #1f6feb;
 }
-body.dark-mode a small {
+.dark-mode a small {
   color: #8b949e;
 }
 
-body.dark-mode .wrapper {
+.dark-mode .wrapper {
   background: none;
 }
 
-body.dark-mode blockquote {
+.dark-mode blockquote {
   border-left: 1px solid #30363d;
   color: #8b949e;
 }
 
-body.dark-mode code, body.dark-mode pre {
+.dark-mode code, .dark-mode pre {
   color: #c9d1d9;
   background: #161b22;
   border-color: #30363d;
 }
-body.dark-mode pre {
+.dark-mode pre {
   background: #161b22;
 }
 
-body.dark-mode table {
+.dark-mode table {
   border-color: #30363d;
 }
-body.dark-mode th, body.dark-mode td {
+.dark-mode th, .dark-mode td {
   border-bottom: 1px solid #30363d;
   color: #c9d1d9;
 }
-body.dark-mode th {
+.dark-mode th {
   color: #e6edf3;
 }
-body.dark-mode dt {
+.dark-mode dt {
   color: #e6edf3;
 }
 
-body.dark-mode kbd {
+.dark-mode kbd {
   background-color: #22272e;
   border: 1px solid #30363d;
   color: #c9d1d9;
 }
 
-body.dark-mode header, body.dark-mode footer {
+.dark-mode header, .dark-mode footer {
   background: none;
 }
-body.dark-mode ul.downloads {
+.dark-mode ul.downloads {
   background: #22272e;
   border: 1px solid #30363d;
 }
-body.dark-mode .downloads a {
+.dark-mode .downloads a {
   color: #c9d1d9;
 }
-body.dark-mode .downloads a:hover, body.dark-mode .downloads a:focus {
+.dark-mode .downloads a:hover, .dark-mode .downloads a:focus {
   color: #e6edf3;
 }
-body.dark-mode .downloads a strong {
-  color: #e6edf3;
-}
-
-body.dark-mode strong {
+.dark-mode .downloads a strong {
   color: #e6edf3;
 }
 
-body.dark-mode section {
+.dark-mode strong {
+  color: #e6edf3;
+}
+
+.dark-mode section {
   background: none;
 }
-body.dark-mode hr {
+.dark-mode hr {
   background: #30363d;
 }
 
 /* Rouge syntax highlighting dark mode */
-body.dark-mode .highlight {
+.dark-mode .highlight {
   background-color: #161b22;
 }
-body.dark-mode .highlight .cm {
+.dark-mode .highlight .cm {
   color: #8b949e;
 }
-body.dark-mode .highlight .cp {
+.dark-mode .highlight .cp {
   color: #8b949e;
 }
-body.dark-mode .highlight .c1 {
+.dark-mode .highlight .c1 {
   color: #8b949e;
 }
-body.dark-mode .highlight .cs {
+.dark-mode .highlight .cs {
   color: #8b949e;
 }
-body.dark-mode .highlight .c, body.dark-mode .highlight .cd {
+.dark-mode .highlight .c, .dark-mode .highlight .cd {
   color: #8b949e;
 }
-body.dark-mode .highlight .err {
+.dark-mode .highlight .err {
   color: #f85149;
   background-color: #b62324;
 }
-body.dark-mode .highlight .gd {
+.dark-mode .highlight .gd {
   background-color: #b62324;
 }
-body.dark-mode .highlight .gi {
+.dark-mode .highlight .gi {
   background-color: #238636;
 }
-body.dark-mode .highlight .go {
+.dark-mode .highlight .go {
   color: #484f58;
 }
-body.dark-mode .highlight .gh {
+.dark-mode .highlight .gh {
   color: #8b949e;
 }
-body.dark-mode .highlight .kt, body.dark-mode .highlight .nc {
+.dark-mode .highlight .kt, .dark-mode .highlight .nc {
   color: #79c0ff;
 }
-body.dark-mode .highlight .s, body.dark-mode .highlight .sb, body.dark-mode .highlight .sc, body.dark-mode .highlight .sd, body.dark-mode .highlight .s2, body.dark-mode .highlight .se, body.dark-mode .highlight .sh, body.dark-mode .highlight .si, body.dark-mode .highlight .sx, body.dark-mode .highlight .sr, body.dark-mode .highlight .s1, body.dark-mode .highlight .ss {
+.dark-mode .highlight .s, .dark-mode .highlight .sb, .dark-mode .highlight .sc, .dark-mode .highlight .sd, .dark-mode .highlight .s2, .dark-mode .highlight .se, .dark-mode .highlight .sh, .dark-mode .highlight .si, .dark-mode .highlight .sx, .dark-mode .highlight .sr, .dark-mode .highlight .s1, .dark-mode .highlight .ss {
   color: #a5d6ff;
 }
-body.dark-mode .highlight .m, body.dark-mode .highlight .mb, body.dark-mode .highlight .mx, body.dark-mode .highlight .mf, body.dark-mode .highlight .mh, body.dark-mode .highlight .il, body.dark-mode .highlight .mi, body.dark-mode .highlight .mo {
+.dark-mode .highlight .m, .dark-mode .highlight .mb, .dark-mode .highlight .mx, .dark-mode .highlight .mf, .dark-mode .highlight .mh, .dark-mode .highlight .il, .dark-mode .highlight .mi, .dark-mode .highlight .mo {
   color: #ffa657;
 }
-body.dark-mode .highlight .na, body.dark-mode .highlight .no, body.dark-mode .highlight .nv, body.dark-mode .highlight .vc, body.dark-mode .highlight .vg, body.dark-mode .highlight .vi {
+.dark-mode .highlight .na, .dark-mode .highlight .no, .dark-mode .highlight .nv, .dark-mode .highlight .vc, .dark-mode .highlight .vg, .dark-mode .highlight .vi {
   color: #d2a8ff;
 }
-body.dark-mode .highlight .bp {
+.dark-mode .highlight .bp {
   color: #8b949e;
 }
-body.dark-mode .highlight .nb {
+.dark-mode .highlight .nb {
   color: #58a6ff;
 }
-body.dark-mode .highlight .nd, body.dark-mode .highlight .ne, body.dark-mode .highlight .nf, body.dark-mode .highlight .nl {
+.dark-mode .highlight .nd, .dark-mode .highlight .ne, .dark-mode .highlight .nf, .dark-mode .highlight .nl {
   color: #ffa657;
 }
-body.dark-mode .highlight .nn {
+.dark-mode .highlight .nn {
   color: #c9d1d9;
 }
-body.dark-mode .highlight .nt {
+.dark-mode .highlight .nt {
   color: #7ee787;
 }
-body.dark-mode .highlight .ow, body.dark-mode .highlight .o {
+.dark-mode .highlight .ow, .dark-mode .highlight .o {
   color: #ff7b72;
 }
-body.dark-mode .highlight .w {
+.dark-mode .highlight .w {
   color: #484f58;
 }
 
-  body.dark-mode .highlight .k,
-  body.dark-mode .highlight .kc,
-  body.dark-mode .highlight .kd,
-  body.dark-mode .highlight .kn,
-  body.dark-mode .highlight .kp,
-  body.dark-mode .highlight .kr,
-  body.dark-mode .highlight .kv {
+  .dark-mode .highlight .k,
+  .dark-mode .highlight .kc,
+  .dark-mode .highlight .kd,
+  .dark-mode .highlight .kn,
+  .dark-mode .highlight .kp,
+  .dark-mode .highlight .kr,
+  .dark-mode .highlight .kv {
     color: #79c0ff;
     font-weight: bold;
   }
 
 /* Responsive and print media queries for dark mode */
 @media print, screen and (max-width: 960px) {
-  body.dark-mode div.wrapper,
-  body.dark-mode header,
-  body.dark-mode section,
-  body.dark-mode footer {
+  .dark-mode div.wrapper,
+  .dark-mode header,
+  .dark-mode section,
+  .dark-mode footer {
     background: none;
     color: #c9d1d9;
   }
 }
 @media print, screen and (max-width: 720px) {
-  body.dark-mode header {
+  .dark-mode header {
     background: none;
   }
 }
 @media print, screen and (max-width: 480px) {
-  body.dark-mode .downloads {
+  .dark-mode .downloads {
     background: #22272e;
   }
 }
 @media print {
-  body.dark-mode {
+  .dark-mode {
     color: #c9d1d9;
     background: #181a1b;
   }
