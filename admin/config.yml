@@ -1,0 +1,51 @@
+# Decap CMS configuration.
+# This file is served verbatim at /admin/config.yml (no Jekyll front matter,
+# so Liquid tags like {{year}} below are left untouched).
+
+backend:
+  name: github
+  repo: crachel/crachel.github.io
+  branch: main
+  # Decap opens a popup to <base_url>/<auth_endpoint> to run the GitHub OAuth
+  # flow. GitHub Pages has no server, so this points at a small OAuth broker
+  # you deploy (see the setup notes). Replace the host below with yours:
+  base_url: https://REPLACE-WITH-YOUR-OAUTH-BROKER
+  auth_endpoint: auth
+
+# Test the CMS on your laptop with no OAuth broker: set this to true, run
+# `npx decap-server`, and open http://localhost:8081/admin/ (git-committing
+# straight to your working copy). Keep it commented for the live site.
+# local_backend: true
+
+# Uploaded images land here and are referenced from posts by their public path.
+media_folder: assets/img/uploads
+public_folder: /assets/img/uploads
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    description: Blog posts published under /blog/.
+    folder: _posts
+    create: true
+    # Produces the Jekyll-required filename, e.g. 2026-07-07-my-title.md
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sort:
+      - { field: date, direction: descending }
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: post }
+      - { label: Title, name: title, widget: string }
+      - {
+          label: "Publish Date",
+          name: date,
+          widget: datetime,
+          format: "YYYY-MM-DD",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - {
+          label: Body,
+          name: body,
+          widget: markdown,
+          hint: "Type <!--more--> where you want the homepage excerpt to stop.",
+        }
