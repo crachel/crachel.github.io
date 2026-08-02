@@ -4,7 +4,7 @@ title: "Dante's Peak (1997)"
 date: 2026-08-02
 ---
 
-Linda Hamilton's character: "Cappuccino, expresso, caffè latte?"
+Linda Hamilton's character: "Cappuccino, espresso, caffè latte?"
 
 <!--more-->
 
